@@ -40,7 +40,7 @@ export default function MissionControl() {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io("https://mission-control-api-5118.onrender.com");
     
     newSocket.on("connect", () => {
       setIsConnected(true);
@@ -77,7 +77,7 @@ export default function MissionControl() {
 
   const fetchSystemStats = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/system");
+      const res = await fetch("https://mission-control-api-5118.onrender.com/api/system");
       const data = await res.json();
       setSystem(data);
     } catch (err) {
@@ -96,7 +96,7 @@ export default function MissionControl() {
     if (!command) return;
     
     try {
-      const res = await fetch("http://localhost:3001/api/agents", {
+      const res = await fetch("https://mission-control-api-5118.onrender.com/api/agents", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -116,7 +116,7 @@ export default function MissionControl() {
 
   const stopAgent = async (id: string) => {
     try {
-      await fetch(`http://localhost:3001/api/agents/${id}/stop`, {
+      await fetch(`https://mission-control-api-5118.onrender.com/api/agents/${id}/stop`, {
         method: "POST"
       });
     } catch (err) {
