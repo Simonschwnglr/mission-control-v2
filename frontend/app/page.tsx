@@ -425,7 +425,7 @@ export default function MissionControl() {
               icon={Server}
               label="AGENTS"
               value={`${system.activeAgents}/${system.totalAgents}`}
-              color={system.activeAgents > 0 ? "green" : "gray"}
+              color={system.activeAgents > 0 ? "green" : "cyan"}
             />
           </div>
         )}
